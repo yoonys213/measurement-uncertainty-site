@@ -4,9 +4,8 @@ document.getElementById('backButton').addEventListener('click', () => {
     const overlay = document.getElementById('overlay');
     overlay.classList.add('active');
 
-    // 1초 후에 현재 창을 닫고 che_calcul2.html 열기
+    // 1초 후에 che_calcul2.html로 이동
     setTimeout(() => {
-        window.open('https://yoonys213.github.io/measurement-uncertainty-site/che_calcul2.html', '_blank'); // 새 창에서 열기
-        window.close(); // 현재 창 닫기
+        window.location.href = 'che_calcul2.html'; // che_calcul2.html로 이동
     }, 1000); // 애니메이션 시간과 동일하게 설정
 });
