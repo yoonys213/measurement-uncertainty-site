@@ -41,6 +41,18 @@ function goBack() {
 
     // 1초 후에 이전 페이지로 이동
     setTimeout(() => {
-        window.history.back(); // 이전 페이지로 이동
+        // 오버레이 초기화
+        overlay.classList.remove('active');
+        overlay.style.width = '0';
+        overlay.style.height = '0';
+
+        // 모든 버튼의 텍스트 보이기
+        const buttons = document.querySelectorAll('.button');
+        buttons.forEach(button => {
+            button.classList.remove('hide-text');
+        });
+
+        // che_calcul.html로 이동
+        window.location.href = 'che_calcul.html';
     }, 1000); // 애니메이션 시간과 동일하게 설정
 }
