@@ -18,5 +18,19 @@
     </div>
 
     <script src="js/script.js"></script>
+    <script>
+        // 페이지 로드 시 초기 상태로 돌아가기
+        window.onload = () => {
+            const overlay = document.getElementById('overlay');
+            overlay.classList.remove('active');
+            overlay.style.width = '0';
+            overlay.style.height = '0';
+
+            const buttons = document.querySelectorAll('.button');
+            buttons.forEach(button => {
+                button.classList.remove('hide-text');
+            });
+        };
+    </script>
 </body>
 </html>
