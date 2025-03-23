@@ -1,46 +1,12 @@
-function openNewPage(event, url, buttonId) {
-    // 클릭한 버튼의 위치 계산
-    const button = document.getElementById(buttonId);
-    const rect = button.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2; // 버튼의 가운데 X 좌표
-    const centerY = rect.top + rect.height / 2; // 버튼의 가운데 Y 좌표
-
-    // 오버레이 위치 설정
-    const overlay = document.getElementById('overlay');
-    overlay.style.left = `${centerX}px`;
-    overlay.style.top = `${centerY}px`;
-
-    // 모든 버튼의 텍스트 숨기기
-    const buttons = document.querySelectorAll('.button');
-    buttons.forEach(button => {
-        button.classList.add('hide-text');
-    });
-
-    // 선택된 버튼의 텍스트만 보이게 하기
-    button.classList.remove('hide-text');
-
+// 뒤로가기 버튼 클릭 시 동작
+document.getElementById('backButton').addEventListener('click', () => {
     // 오버레이 활성화
+    const overlay = document.getElementById('overlay');
     overlay.classList.add('active');
 
-    // 1초 후에 새 페이지로 이동
+    // 1초 후에 현재 창을 닫고 che_calcul2.html 열기
     setTimeout(() => {
-        window.location.href = url; // 현재 창에서 새 페이지로 이동
+        window.open('https://yoonys213.github.io/measurement-uncertainty-site/che_calcul2.html', '_blank'); // 새 창에서 열기
+        window.close(); // 현재 창 닫기
     }, 1000); // 애니메이션 시간과 동일하게 설정
-}
-
-function goBack() {
-    // 오버레이 위치를 뒤로가기 버튼의 위치로 설정
-    const overlay = document.getElementById('overlay');
-    const button = document.querySelector('.back-button');
-    const rect = button.getBoundingClientRect();
-    overlay.style.left = `${rect.left + rect.width / 2}px`;
-    overlay.style.top = `${rect.top + rect.height / 2}px`;
-
-    // 오버레이 활성화
-    overlay.classList.add('active');
-
-    // 1초 후에 이전 페이지로 이동
-    setTimeout(() => {
-        window.history.back(); // 이전 페이지로 이동
-    }, 1000); // 애니메이션 시간과 동일하게 설정
-}
+});
