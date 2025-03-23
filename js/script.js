@@ -29,5 +29,18 @@ function openNewPage(event, url, buttonId) {
 }
 
 function goBack() {
-    window.history.back(); // 이전 페이지로 이동
+    // 오버레이 위치를 뒤로가기 버튼의 위치로 설정
+    const overlay = document.getElementById('overlay');
+    const button = document.querySelector('.back-button');
+    const rect = button.getBoundingClientRect();
+    overlay.style.left = `${rect.left + rect.width / 2}px`;
+    overlay.style.top = `${rect.top + rect.height / 2}px`;
+
+    // 오버레이 활성화
+    overlay.classList.add('active');
+
+    // 1초 후에 이전 페이지로 이동
+    setTimeout(() => {
+        window.history.back(); // 이전 페이지로 이동
+    }, 1000); // 애니메이션 시간과 동일하게 설정
 }
